@@ -5,7 +5,7 @@ import { Text } from 'rebass'
 
 import styled from 'styled-components'
 
-import Logo from '../../assets/images/mainlogo.png'
+import Logo from '../../assets/images/Logonew.png'
 import { useActiveWeb3React } from '../../hooks'
 //import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
@@ -77,18 +77,22 @@ const AccountElement = styled.div<{ active: boolean }>`
 const TestnetWrapper = styled.div`
   white-space: nowrap;
   width: fit-content;
-  margin-left: 10px;
+  margin: 0 10px;
   pointer-events: auto;
 `
 
 const NetworkCard = styled(YellowCard)`
   width: fit-content;
   margin-right: 10px;
-  border-radius: 12px;
-  padding: 8px 12px;
+  border-radius: 15px;
+  background: #222;
+  padding: 10px 13px;
 `
 
 const UniIcon = styled.div`
+  display: flex;
+  align-items: center;
+  color: #fff;
   transition: transform 0.3s ease;
   :hover {
     transform: rotate(-5deg);
@@ -132,7 +136,8 @@ export default function Header() {
         <HeaderElement>
           <Title href=".">
             <UniIcon>
-              <img style={{ height: 50 }} src={Logo} alt="logo" />
+              <img style={{ height: 100 }} src={Logo} alt="logo" />
+              <h1>THE RICH</h1>
             </UniIcon>
           </Title>
         </HeaderElement>

@@ -118,7 +118,6 @@ export function theme(): DefaultTheme {
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   //const darkMode = useIsDarkMode()
-
   const themeObject = theme()
 
   return <StyledComponentsThemeProvider theme={themeObject}>{children}</StyledComponentsThemeProvider>
@@ -172,7 +171,7 @@ export const TYPE = {
 
 export const FixedGlobalStyle = createGlobalStyle`
 html, input, textarea, button {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Press Start 2P', sans-serif, cursive;;
   letter-spacing: -0.018em;
   font-display: fallback;
 }
@@ -204,11 +203,15 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 `
+
 //background-color: ${({ theme }) => theme.bg2};
+
 export const ThemedGlobalStyle = createGlobalStyle`
+
 html {
   color: ${({ theme }) => theme.text1};
-  background: url(${BackgroundImage})
+  /* background: url(${BackgroundImage}) */
+  background-image: linear-gradient(to right top, #0d1126 80%, #cfa731 20%);
 }
 
 

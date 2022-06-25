@@ -15,7 +15,7 @@ import {
 import Pool from './Pool'
 import PoolFinder from './PoolFinder'
 import Swap from './Swap'
-import Homepage from './homepage'
+import Homepage from './homepage/index'
 import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
@@ -37,7 +37,7 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 160px;
+  padding-top: 180px;
   align-items: center;
   flex: 1;
   overflow-y: auto;
