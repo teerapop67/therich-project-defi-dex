@@ -2,18 +2,21 @@ import styled from 'styled-components'
 // ` `
 //    background-color  : #262A53;
 export const FooterContent = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, auto));
   width: 100%;
-  height: 400px;
   justify-content: center;
   align-items: center;
+  grid-gap: 30px;
+  padding: 30px;
 `
 
 export const FooterBox = styled.div`
-  width: 20%;
+  width: 100%;
   height: 300px;
   background-color: #262a53;
-  margin-left: 2rem;
+  flex-wrap: wrap;
+
   justify-content: center;
   align-items: center;
   text-align: center;

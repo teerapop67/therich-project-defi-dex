@@ -1,11 +1,11 @@
 import styled, { keyframes } from 'styled-components'
-import { motion } from 'framer-motion/dist/framer-motion'
+import { motion } from 'framer-motion'
 // ` `
 
 // Green = #CAD315
 // Purple = #7900FF
 // Red = #C70A80
-// Dark purple = #262A53
+// Dark purple = #262A53'
 
 // Yellow = #FFEF82
 
@@ -73,6 +73,7 @@ export const HeaderA = styled.a`
   padding: 0.5rem 1rem;
 `
 export const HeadText = styled.h1`
+  color: ${({ theme }) => theme.text1}
   font-size: 3em;
 `
 
@@ -104,10 +105,10 @@ export const HeadH2 = styled.h2`
 
 export const HeadTextGradient = styled(motion.h1)`
   font-size: 2.5em;
-  font-family: 'Press Start 2P';
-  letter-spacing: 5px;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
+  color: ${({ theme }) => theme.text1};
 `
 
 const animateText = keyframes`
@@ -122,90 +123,64 @@ const animateText = keyframes`
 
 export const HeadTextGradient2 = styled(motion.h1)`
   font-size: 2.5em;
+  margin: 0 0 50px 0;
   color: #f10086;
-  letter-spacing: 5px;
   transition: text-shadow 0.5s ease;
   animation: ${animateText} 1s infinite alternate;
 `
 
 export const HeadTextP = styled(motion.p)`
   font-size: 1.1em;
+  color: ${({ theme }) => theme.text2};
   line-height: 1.75rem;
   font-weight: medium;
-  color: #d1d1d1;
   transition: color 0.5s ease;
-  &:hover {
+  /* &:hover {
     color: #d1d1d1;
-  }
-`
-
-export const Button = styled.button`
-    background-color : white;
-    margin-top : 1rem;
-    margin-right : 1rem;
-    width : 150px
-    color : black;
-    text-decoration : none;
-    text-align : center;
-    font-size : 20px;
-    cursor : pointer;
-    padding: 10px 25px;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
-    transition : background-color 0.3s ease;
-    transition :  color 0.4s ease;
-    transition :  width 0.4s ease;
-    transition : box-shadow 0.5s ease;
-    &:hover {
-        box-shadow: rgba(1, 255 , 146, 0.4) 5px 5px, rgba(1, 255 , 146, 0.3) 10px 10px, rgba(1, 255 , 146, 0.2) 15px 15px, rgba(1, 255 , 146, 0.1) 20px 20px, rgba(1, 255 , 146, 0.05) 25px 25px;
-    }
+  } */
 `
 
 export const Button2 = styled.button`
-    background-color : goldenrod;
-    z-index: 5;
-    margin-top : 1rem;
-    width : 350px
-    margin-right : 1rem;
-    color : black;
-    text-decoration : none;
-    text-align : center;
-    font-size : 20px;
-    cursor : pointer;
-    padding: 10px 25px;
-    border: none;
-    transition : background-color 0.3s ease;
-    transition :  color 0.4s ease;
-    transition :  width 0.4s ease;
-    &:hover {
-
-        width : 400px;
-    }
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: goldenrod;
+  z-index: 5;
+  width: fit-content;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 25px;
+  border: none;
+  transition: background-color 0.3s ease;
+  transition: all 0.4s ease;
+  &:hover {
+    padding: 10px 40px;
+  }
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `
 
 export const Button3 = styled.button`
-    background-color : transparent;
-    z-index: 5;
-    border: 2px solid #999;
-    margin-top : 1rem;
-    width : 350px
-    margin-right : 1rem;
-    color : #D1D1D1;
-    text-decoration : none;
-    text-align : center;
-    font-size : 20px;
-    cursor : pointer;
-    padding: 10px 25px;
-    transition : background-color 0.3s ease;
-    transition :  color 0.4s ease;
-    transition :  width 0.4s ease;
-    &:hover {
-
-        width : 400px;
-    }
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: transparent;
+  z-index: 5;
+  width: fit-content;
+  border: 2px solid #999;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  color: ${({ theme }) => theme.text1};
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 25px;
+  transition: all 0.4s ease;
+  &:hover {
+    padding: 10px 40px;
+  }
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `
 
 export const Img = styled.img``

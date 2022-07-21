@@ -208,7 +208,7 @@ export default function FullPositionCard({ pair, border }: PositionCardProps) {
             </FixedHeightRow>
             <FixedHeightRow>
               <Text fontSize={16} fontWeight={500}>
-                Your pool tokens:
+                Your benefit earn:
               </Text>
               <Text fontSize={16} fontWeight={500}>
                 {userPoolBalance ? userPoolBalance.toSignificant(4) : '-'}

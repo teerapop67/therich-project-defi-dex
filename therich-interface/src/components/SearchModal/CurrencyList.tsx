@@ -42,7 +42,16 @@ const Tag = styled.div`
   margin-right: 4px;
 `
 
-function Balance({ balance }: { balance: CurrencyAmount }) {
+export function Balance({ balance, showBalance }: { balance: CurrencyAmount; showBalance?: Boolean }) {
+  console.log('SADASD:', balance)
+  if (showBalance) {
+    return (
+      <>
+        <h1>Hi</h1>
+      </>
+    )
+  }
+
   return <StyledBalanceText title={balance.toExact()}>{balance.toSignificant(4)}</StyledBalanceText>
 }
 
@@ -99,6 +108,8 @@ function CurrencyRow({
   const isOnSelectedList = isTokenOnList(selectedTokenList, currency)
   const customAdded = useIsUserAddedToken(currency)
   const balance = useCurrencyBalance(account ?? undefined, currency)
+
+  console.log('currency: ', currency)
 
   const removeToken = useRemoveUserAddedToken()
   const addToken = useAddUserToken()
@@ -179,6 +190,7 @@ export default function CurrencyList({
       const isSelected = Boolean(selectedCurrency && currencyEquals(selectedCurrency, currency))
       const otherSelected = Boolean(otherCurrency && currencyEquals(otherCurrency, currency))
       const handleSelect = () => onCurrencySelect(currency)
+
       return (
         <CurrencyRow
           style={style}

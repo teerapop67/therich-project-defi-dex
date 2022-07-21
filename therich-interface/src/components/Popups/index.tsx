@@ -31,7 +31,7 @@ const MobilePopupInner = styled.div`
 
 const FixedPopupColumn = styled(AutoColumn)`
   position: fixed;
-  top: 64px;
+  top: 100px;
   right: 1rem;
   max-width: 355px !important;
   width: 100%;
@@ -45,7 +45,7 @@ const FixedPopupColumn = styled(AutoColumn)`
 export default function Popups() {
   // get all popups
   const activePopups = useActivePopups()
-
+  console.log('list: ', activePopups)
   return (
     <>
       <FixedPopupColumn gap="20px">

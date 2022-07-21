@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { motion } from 'framer-motion/dist/framer-motion'
+import { motion } from 'framer-motion'
 // ` `
 
 export const Content = styled.div`
@@ -8,6 +8,12 @@ export const Content = styled.div`
   height: 400px;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1100px) {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
 `
 
 export const ContentBox1 = styled(motion.div)`
@@ -15,6 +21,14 @@ export const ContentBox1 = styled(motion.div)`
   height: 300px;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1100px) {
+    height: fit-content;
+    margin: 30px 0;
+  }
+  @media screen and (max-width: 650px) {
+    width: fit-content;
+  }
 `
 export const ContentBox2 = styled(motion.div)`
   display: grid;
@@ -34,6 +48,14 @@ export const ContentBox2 = styled(motion.div)`
   &:hover {
     box-shadow: rgba(1, 214, 255, 0.4) 5px 5px, rgba(1, 214, 255, 0.3) 10px 10px, rgba(1, 214, 255, 0.2) 15px 15px,
       rgba(1, 214, 255, 0.1) 20px 20px, rgba(1, 214, 255, 0.05) 25px 25px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 650px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `
 

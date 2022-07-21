@@ -2,7 +2,7 @@ import { ChainId } from 'richsdk'
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import Modal from '../Modal'
-import { ExternalLink } from '../../theme'
+// import { ExternalLink } from '../../theme'
 import { Text } from 'rebass'
 import { CloseIcon, Spinner } from '../../theme/components'
 import { RowBetween } from '../Row'
@@ -11,7 +11,7 @@ import { ButtonPrimary } from '../Button'
 import { AutoColumn, ColumnCenter } from '../Column'
 import Circle from '../../assets/images/blue-loader.svg'
 
-import { getEtherscanLink } from '../../utils'
+// import { getEtherscanLink } from '../../utils'
 import { useActiveWeb3React } from '../../hooks'
 
 const Wrapper = styled.div`
@@ -91,13 +91,13 @@ function TransactionSubmittedContent({
             Transaction Submitted
           </Text>
 
-          {chainId && hash && (
+          {/* {chainId && hash && (
             <ExternalLink href={getEtherscanLink(chainId, hash, 'transaction')}>
               <Text fontWeight={500} fontSize={14} color={theme.primary1}>
                 View on Moonbase explorer
               </Text>
             </ExternalLink>
-          )}
+          )} */}
           <ButtonPrimary onClick={onDismiss} style={{ margin: '20px 0 0 0' }}>
             <Text fontWeight={500} fontSize={20}>
               Close

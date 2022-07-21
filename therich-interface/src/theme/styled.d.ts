@@ -19,6 +19,7 @@ export interface Colors {
   bg3: Color
   bg4: Color
   bg5: Color
+  bgMain: Color
 
   modalBG: Color
   advancedBG: Color
@@ -43,6 +44,10 @@ export interface Colors {
   green1: Color
   yellow1: Color
   yellow2: Color
+
+  shadow: Color
+  shadow2: Color
+  shadow3: Color
 }
 
 export interface Grids {
@@ -54,7 +59,7 @@ export interface Grids {
 declare module 'styled-components' {
   export interface DefaultTheme extends Colors {
     grids: Grids
-
+    title: string
     // shadows
     shadow1: string
 

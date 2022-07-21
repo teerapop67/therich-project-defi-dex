@@ -38,5 +38,7 @@
   "include": [
     "./src/**/*.ts",
     "./src/**/*.tsx"
-  ]
+, "src/pages/homepage/FooterBox/Footer.jsx", "src/pages/homepage/ContentBar.ts", "src/pages/homepage/ourMission/Content.ts" , "src/pages/homepage/FooterCommunity/Footer.js", "src/pages/homepage/landing/Header.jsx", "src/pages/homepage/TextScroller.jsx", "src/pages/homepage/landing/Header.jsx" ],
+
+
 }
