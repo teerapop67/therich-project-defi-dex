@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { Items } from './ContentBar'
 import { MeetTeam } from './MeetTeam'
@@ -10,7 +10,7 @@ import OurMission from './ourMission'
 import FooterCommunity from './FooterCommunity'
 import LastPage from './LastPage'
 import { Header, HeaderInfo2 } from './landing/Header'
-import axios from 'axios'
+// import axios from 'axios'
 
 const item = {
   visible: { opacity: 1, y: 0 },
@@ -62,29 +62,29 @@ const Homepage = () => {
   //   }
   // }, [])
 
-  useEffect(() => {
-    //"0x79F4A917dd4f8e93c19A0340C0868573F6914A15"
-    axios
-      .post('https://moonbase.api.subscan.io/api/scan/evm/transactions', {
-        headers: {
-          'content-type': 'application/json',
-          'X-API-Key': '9dd98494f9fb43db87466f76bb92accb'
-        },
-        data: { blockNum: 2529171 }
-      })
-      .then((res: any) => {
-        if (res.data.data) {
-          res.data.data.list.map((items: any) => {
-            console.log('here: ', items)
-            if (items.from === '0x79F4A917dd4f8e93c19A0340C0868573F6914A15') {
-              console.log('items: ', items)
-            }
-          })
-        }
-      })
+  // useEffect(() => {
+  //   //"0x79F4A917dd4f8e93c19A0340C0868573F6914A15"
+  //   axios
+  //     .post('https://moonbase.api.subscan.io/api/scan/evm/transactions', {
+  //       headers: {
+  //         'content-type': 'application/json',
+  //         'X-API-Key': '9dd98494f9fb43db87466f76bb92accb'
+  //       },
+  //       data: { blockNum: 2529171 }
+  //     })
+  //     .then((res: any) => {
+  //       if (res.data.data) {
+  //         res.data.data.list.map((items: any) => {
+  //           console.log('here: ', items)
+  //           if (items.from === '0x79F4A917dd4f8e93c19A0340C0868573F6914A15') {
+  //             console.log('items: ', items)
+  //           }
+  //         })
+  //       }
+  //     })
 
-    console.log('%555')
-  }, [])
+  //   console.log('%555')
+  // }, [])
 
   return (
     <>

@@ -28,10 +28,15 @@ export default function Pool() {
 
   // fetch the user's balances of all tracked V2 LP tokens
   const trackedTokenPairs = useTrackedTokenPairs()
+
   const tokenPairsWithLiquidityTokens = useMemo(
     () => trackedTokenPairs.map(tokens => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
     [trackedTokenPairs]
   )
+
+  // console.log('track: ', tokenPairsWithLiquidityTokens[1].tokens[0].symbol)
+  // console.log('track: ', tokenPairsWithLiquidityTokens[2].tokens[0].symbol)
+
   const liquidityTokens = useMemo(() => tokenPairsWithLiquidityTokens.map(tpwlt => tpwlt.liquidityToken), [
     tokenPairsWithLiquidityTokens
   ])
@@ -55,6 +60,8 @@ export default function Pool() {
 
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
+  console.log('pair: ', v2Pairs)
+
   return (
     <>
       <AppBody>
@@ -69,7 +76,7 @@ export default function Pool() {
           <AutoColumn gap="12px" style={{ width: '100%' }}>
             <RowBetween padding={'0 8px'}>
               <Text color={theme.text1} fontWeight={500}>
-                {t('yourLiquidity')}
+                Your Liquidity
               </Text>
               <Question text="When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below." />
             </RowBetween>
@@ -95,7 +102,8 @@ export default function Pool() {
             ) : (
               <LightCard padding="40px">
                 <TYPE.body color={theme.text3} textAlign="center">
-                  {t('noLiquidityFound')}
+                  {/* {t('noLiquidityFound')} */}
+                  No Liquidity Found
                 </TYPE.body>
               </LightCard>
             )}

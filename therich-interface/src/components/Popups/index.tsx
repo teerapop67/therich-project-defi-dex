@@ -45,7 +45,6 @@ const FixedPopupColumn = styled(AutoColumn)`
 export default function Popups() {
   // get all popups
   const activePopups = useActivePopups()
-  console.log('list: ', activePopups)
   return (
     <>
       <FixedPopupColumn gap="20px">

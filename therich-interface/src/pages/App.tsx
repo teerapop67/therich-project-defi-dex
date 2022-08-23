@@ -26,6 +26,7 @@ import { ThemeProvider } from 'styled-components'
 import dark from '../theme/darkTheme'
 import light from '../theme/lightTheme'
 import { ThemedGlobalStyle } from '../theme'
+import { useAllTokenBalances } from '../state/wallet/hooks'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -44,7 +45,7 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 180px;
+  padding-top: 150px;
   align-items: center;
   flex: 1;
   overflow-y: auto;
@@ -62,6 +63,27 @@ const Marginer = styled.div`
   margin-top: 5rem;
 `
 
+const CoinWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  .box-token {
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid yellow;
+
+    .name-coin {
+      margin-right: 10px;
+      color: red;
+    }
+  }
+  margin-bottom: 30px;
+`
+
 export default function App() {
   const darkObject = dark()
   const lightObject = light()
@@ -72,9 +94,7 @@ export default function App() {
   const [theme, setTheme] = useState(darkObject)
 
   const toggleTheme = () => {
-    console.log(theme)
     setTheme(theme.title === 'dark' ? lightObject : darkObject)
-    console.log(theme.title)
     if (theme.title === 'dark') {
       localStorage.setItem('themeMode', JSON.stringify(lightObject))
     } else {
@@ -94,6 +114,14 @@ export default function App() {
       }
     }
   }, [])
+
+  const balance = useAllTokenBalances()
+
+  const earth = '0x08B40414525687731C23F430CEBb424b332b3d35'
+  const rich = '0x6e3B1C44C888487Ae92cc4651858F0a838Eb69A2'
+  const jup = '0x9Aac6FB41773af877a2Be73c99897F3DdFACf576'
+  const wdevShow = '0xD909178CC99d318e4D46e7E66a972955859670E1'
+
   return (
     <Suspense fallback={null}>
       <ThemeProvider theme={theme}>
@@ -126,6 +154,25 @@ export default function App() {
                 </Switch>
               </Web3ReactManager>
               <Marginer />
+              <CoinWrapper>
+                <div className="box-token">
+                  <p className="name-coin">{balance[rich]?.currency?.symbol}</p>
+
+                  {balance[rich]?.toSignificant(4)}
+                </div>
+                <div className="box-token">
+                  <p className="name-coin">{balance[earth]?.currency?.symbol} </p>
+                  {balance[earth]?.toSignificant(4)}
+                </div>
+                <div className="box-token">
+                  <p className="name-coin">{balance[jup]?.currency?.symbol}</p>
+                  {balance[jup]?.toSignificant(4)}
+                </div>
+                <div className="box-token">
+                  <p className="name-coin">{balance[wdevShow]?.currency?.symbol}</p>
+                  {balance[wdevShow]?.toSignificant(4)}
+                </div>
+              </CoinWrapper>
             </BodyWrapper>
           </AppWrapper>
         </HashRouter>

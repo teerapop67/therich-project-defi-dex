@@ -101,7 +101,6 @@
   "code": "Code",
   "transactionSettings": "Transaction Settings",
   "interfaceSettings": "Interface Settings",
-  // "toggleExpertMode": "Toggle Expert Mode",
   "toggleDarkMode": "Toggle Dark Mode",
   "areYouSure": "Are you sure?",
   "expertModeTips1": "Expert mode turns off the confirm transaction prompt and allows high slippage trades that often result in bad rates and lost funds.",
