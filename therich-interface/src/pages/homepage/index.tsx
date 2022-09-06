@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Items } from './ContentBar'
-import { MeetTeam } from './MeetTeam'
+import MeetTeam from './MeetTeam/index'
 import TextScroller from './TextScroller'
 import './bitcoin.css'
 import { motion } from 'framer-motion'
@@ -125,7 +125,7 @@ const Homepage = () => {
       {/*LAST PAGE*/}
       <LastPage key={2} item={item} animateState={animateState} />
 
-      <MeetTeam></MeetTeam>
+      <MeetTeam />
     </>
   )
 }

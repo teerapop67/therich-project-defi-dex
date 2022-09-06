@@ -50,6 +50,7 @@ export const SwapWrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
+  max-width: 1180px;
   align-items: center
   width: 100%;
 `
@@ -269,7 +270,7 @@ export default function Swap() {
   const setUpCanvas = () => {
     //**scene**
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color('#1f2232')
+    // scene.background = new THREE.Color('#1f2232')
 
     const loader = new THREE.CubeTextureLoader()
     loader.setPath('./images/model/')
@@ -328,6 +329,7 @@ export default function Swap() {
 
       //renderer
       renderer.render(scene, camera)
+      renderer.setClearColor(0xffffff, 0)
 
       window.requestAnimationFrame(animate)
     }

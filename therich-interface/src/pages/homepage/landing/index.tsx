@@ -15,7 +15,7 @@ export const Button = styled.button<{ borderColor: string }>`
     font-size : 20px;
     cursor : pointer;
     padding: 10px 25px;
-    border-radius: 12px;
+    border-radius: 0;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
     transition : background-color 0.3s ease;
@@ -48,7 +48,7 @@ const Landing: React.FC<any> = () => {
           Swap and Earn Liquidity with us on MoonBeam Chain.
         </HeadTextP>
         <Link to="/swap">
-          <Button borderColor="#cfa731">Launch</Button>
+          <Button borderColor="#6c6051">Launch</Button>
         </Link>
 
         <Button borderColor="transparent">Documents</Button>

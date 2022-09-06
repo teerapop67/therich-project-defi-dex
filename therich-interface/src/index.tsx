@@ -16,6 +16,7 @@ import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
 import { FixedGlobalStyle } from './theme'
 import getLibrary from './utils/getLibrary'
+import { HashRouter } from 'react-router-dom'
 
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
@@ -54,15 +55,17 @@ function Updaters() {
 
 ReactDOM.render(
   <StrictMode>
-    <FixedGlobalStyle />
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <Web3ProviderNetwork getLibrary={getLibrary}>
-        <Provider store={store}>
-          <Updaters />
-          <App />
-        </Provider>
-      </Web3ProviderNetwork>
-    </Web3ReactProvider>
+    <HashRouter>
+      <FixedGlobalStyle />
+      <Web3ReactProvider getLibrary={getLibrary}>
+        <Web3ProviderNetwork getLibrary={getLibrary}>
+          <Provider store={store}>
+            <Updaters />
+            <App />
+          </Provider>
+        </Web3ProviderNetwork>
+      </Web3ReactProvider>
+    </HashRouter>
   </StrictMode>,
   document.getElementById('root')
 )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button2, Button3, HeadGreen, HeadTextP, Img } from '../landing/Header'
+import { Button2, Button3, HeadTextP, Img } from '../landing/Header'
 import styled from 'styled-components'
 import { PropsOurMission } from '../ourMission'
 
@@ -12,7 +12,7 @@ export const LastPageContainer = styled.div`
     text-align : center;
     color :white;
     margin-top : 5rem;
-    background-color: #262a53;
+    background-color: #2c2d32;
     /* background-image: linear-gradient(225deg, #333 0%, #222 50%, #444 100%); */
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     @media screen and (max-width: 1100px) {
@@ -49,7 +49,7 @@ const LastPage: React.FC<PropsOurMission> = ({ item, animateState }) => {
     <>
       <LastPageContainer>
         <LastLeft>
-          <HeadGreen>This Is For Educational Purpose</HeadGreen>
+          <h1 style={{ color: '#fff' }}>This Is For Educational Purpose</h1>
           <HeadTextP
             style={{ color: '#d1d1d1' }}
             variants={item}

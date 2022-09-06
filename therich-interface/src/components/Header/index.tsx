@@ -10,7 +10,7 @@ import { useActiveWeb3React } from '../../hooks'
 // import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
 
-import { YellowCard } from '../Card'
+// import { YellowCard } from '../Card'
 import Settings from '../Settings'
 // import Menu from '../Menu'
 
@@ -26,6 +26,7 @@ const HeaderFrame = styled.div`
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
+  padding: 0 40px;
   top: 0;
   position: absolute;
   z-index: 2;
@@ -106,11 +107,9 @@ const TestnetWrapper = styled.div`
   pointer-events: auto;
 `
 
-const NetworkCard = styled(YellowCard)`
+const NetworkCard = styled.div`
   width: fit-content;
   margin-right: 10px;
-  border-radius: 15px;
-  background: #222;
   padding: 10px 13px;
 `
 
@@ -174,7 +173,7 @@ const Header: React.FC<PropsHeader> = props => {
         </HeaderElement>
         {location.pathname === '/' ? (
           <Link to="/swap">
-            <Button borderColor="#cfa731">Launch</Button>
+            <Button borderColor="#6c6051">Launch</Button>
           </Link>
         ) : (
           <HeaderControls>

@@ -211,7 +211,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text1};
   /* background: url(${BackgroundImage}) */
-  background-image: ${({ theme }) => theme.bgMain};
+  background: ${({ theme }) => theme.bgMain};
 }
 
 
