@@ -28,6 +28,7 @@ import light from '../theme/lightTheme'
 import { ThemedGlobalStyle } from '../theme'
 import { useActiveWeb3React } from '../hooks'
 import DrawerAsset from '../components/DrawerAsset'
+import HistoryTransaction from './HistoryTransaction'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -56,11 +57,19 @@ const BodyWrapper = styled.div`
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
       padding: 16px;
   `};
+
+  @media screen and (max-width: 768px) {
+    padding-top: 250px;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding-top: 50px;
+  }
 `
 
-const Marginer = styled.div`
-  margin-top: 5rem;
-`
+// const Marginer = styled.div`
+//   margin-top: 5rem;
+// `
 
 export default function App() {
   const darkObject = dark()
@@ -88,7 +97,6 @@ export default function App() {
       if (parseVal.title === 'dark') {
         setTheme(darkObject)
       } else {
-        console.log('PAS: ', parseVal.title)
         setTheme(lightObject)
       }
     }
@@ -112,6 +120,7 @@ export default function App() {
             <Web3ReactManager>
               <Switch>
                 <Route exact strict path="/" component={Homepage} />
+                <Route exact strict path="/history" component={HistoryTransaction} />
                 <Route exact strict path="/swap" component={Swap} />
                 <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
                 <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
@@ -126,7 +135,6 @@ export default function App() {
                 <Route component={RedirectPathToSwapOnly} />
               </Switch>
             </Web3ReactManager>
-            <Marginer />
             {location.pathname !== '/' ? account && <DrawerAsset /> : null}
           </BodyWrapper>
         </AppWrapper>

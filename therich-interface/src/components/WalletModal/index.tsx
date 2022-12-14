@@ -11,13 +11,14 @@ import AccountDetails from '../AccountDetails'
 import PendingView from './PendingView'
 import Option from './Option'
 import { SUPPORTED_WALLETS } from '../../constants'
-import { ExternalLink } from '../../theme'
+// import { ExternalLink } from '../../theme'
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { injected, fortmatic, portis } from '../../connectors'
 import { OVERLAY_READY } from '../../connectors/Fortmatic'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { AbstractConnector } from '@web3-react/abstract-connector'
+import { ButtonPrimary } from '../Button'
 
 const CloseIcon = styled.div`
   position: absolute;
@@ -102,11 +103,103 @@ const OptionGrid = styled.div`
   `};
 `
 
+const RecommendBtn = styled.a`
+  padding: 1rem;
+  outline: none;
+  border: 1px solid;
+  border-radius: 12px;
+  width: 100% !important;
+  border-color: #40444f;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 1rem;
+  margin-top: 0;
+  opacity: 1;
+  color: ${({ theme }) => theme.text1};
+
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #ba55d3;
+  }
+`
+
 const HoverText = styled.div`
   :hover {
     cursor: pointer;
   }
 `
+
+const provider = window.ethereum
+// const moonbeamChainId = '0x504'
+// const moonriverChainId = '0x505'
+const moonbaseAlphaChainId = '0x507'
+
+const supportedNetworks: any = {
+  // moonbeam: {
+  //   chainId: moonbeamChainId,
+  //   chainName: 'Moonbeam',
+  //   rpcUrls: ['https://rpc.api.moonbeam.network'],
+  //   blockExplorerUrls: ['https://moonbeam.moonscan.io/'],
+  //   nativeCurrency: {
+  //     name: 'Glimmer',
+  //     symbol: 'GLMR',
+  //     decimals: 18
+  //   }
+  // },
+  // moonriver: {
+  //   chainId: moonriverChainId,
+  //   chainName: 'Moonriver',
+  //   rpcUrls: ['https://rpc.api.moonriver.moonbeam.network'],
+  //   blockExplorerUrls: ['https://moonriver.moonscan.io/'],
+  //   nativeCurrency: {
+  //     name: 'Moonriver',
+  //     symbol: 'MOVR',
+  //     decimals: 18
+  //   }
+  // },
+  moonbase: {
+    chainId: moonbaseAlphaChainId,
+    chainName: 'Moonbase Alpha',
+    rpcUrls: ['https://rpc.api.moonbase.moonbeam.network'],
+    blockExplorerUrls: ['https://moonbase.moonscan.io/'],
+    nativeCurrency: {
+      name: 'DEV',
+      symbol: 'DEV',
+      decimals: 18
+    }
+  }
+}
+
+export const connectNet = async (network: any) => {
+  if (provider) {
+    try {
+      const targetNetwork = supportedNetworks[network]
+      await (provider as any).request({ method: 'eth_requestAccounts' })
+      await (provider as any).request({
+        method: 'wallet_addEthereumChain',
+        params: [targetNetwork]
+      })
+    } catch (e) {
+      console.error('Error: ', e)
+    }
+  } else {
+    window.alert('Please install Metamask first!')
+  }
+}
 
 const WALLET_VIEWS = {
   OPTIONS: 'options',
@@ -229,7 +322,26 @@ export default function WalletModal({
             />
           )
         }
-        return null
+        return (
+          <>
+            <Option
+              id={`connect-${key}`}
+              key={key}
+              color={'#E8831D'}
+              header={'Install Metamask'}
+              subheader={null}
+              link={'https://metamask.io/'}
+              icon={MetamaskIcon}
+            />
+            <RecommendBtn
+              href="https://the-rich-documentation.gitbook.io/installation/"
+              target="_blank"
+              style={{ textDecoration: 'none' }}
+            >
+              Learn more about wallet
+            </RecommendBtn>
+          </>
+        )
       }
 
       // overwrite injected when needed
@@ -238,15 +350,24 @@ export default function WalletModal({
         if (!(window.web3 || window.ethereum)) {
           if (option.name === 'MetaMask') {
             return (
-              <Option
-                id={`connect-${key}`}
-                key={key}
-                color={'#E8831D'}
-                header={'Install Metamask'}
-                subheader={null}
-                link={'https://metamask.io/'}
-                icon={MetamaskIcon}
-              />
+              <>
+                <Option
+                  id={`connect-${key}`}
+                  key={key}
+                  color={'#E8831D'}
+                  header={'Install Metamask'}
+                  subheader={null}
+                  link={'https://metamask.io/'}
+                  icon={MetamaskIcon}
+                />
+                <RecommendBtn
+                  href="https://the-rich-documentation.gitbook.io/installation/"
+                  target="_blank"
+                  style={{ textDecoration: 'none' }}
+                >
+                  Learn more about wallet
+                </RecommendBtn>
+              </>
             )
           } else {
             return null //dont want to return install twice
@@ -296,9 +417,22 @@ export default function WalletModal({
           <HeaderRow>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error connecting'}</HeaderRow>
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
-              <h5>Please connect to the appropriate Ethereum network.</h5>
+              <>
+                <h5 style={{ textAlign: 'center' }}>Please connect to the appropriate Moonbase Alpha network.</h5>
+                {/* <ExternalLink
+                  href="https://the-rich-documentation.gitbook.io/installation/how-to-add-moonbase-alpha-chain"
+                  target="_blank"
+                >
+                  Click here how to switch network
+                </ExternalLink> */}
+                {connector === injected && (
+                  <ButtonPrimary mt={'30px'} onClick={() => connectNet('moonbase')}>
+                    {'Click to connect'}
+                  </ButtonPrimary>
+                )}
+              </>
             ) : (
-              'Error connecting. Try refreshing the page.'
+              'Error connecting. Please make sure you are connected to the appropriate Moonbase Alpha network.'
             )}
           </ContentWrapper>
         </UpperSection>
@@ -349,8 +483,8 @@ export default function WalletModal({
           )}
           {walletView !== WALLET_VIEWS.PENDING && (
             <Blurb>
-              <span>New to Ethereum? &nbsp;</span>{' '}
-              <ExternalLink href="https://ethereum.org/wallets/">Learn more about wallets</ExternalLink>
+              {/* <span>New to Ethereum? &nbsp;</span>{' '}
+              <ExternalLink href="https://ethereum.org/wallets/">Learn more about wallets</ExternalLink> */}
             </Blurb>
           )}
         </ContentWrapper>

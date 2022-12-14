@@ -45,22 +45,21 @@ export function colors(): Colors {
     bg3: '#6C7284',
     bg4: '#6C7284',
     bg5: '#41434c',
+    bgMain: '#eff6ff',
     // bgMain: 'linear-gradient(to right top, #E3DDF1 70%, #cfa731 30%)',
-    bgMain: 'linear-gradient(62deg, #E3DDF1 0%, #E3DDF1 100%)',
-
     //specialty colors
     modalBG: 'rgba(0,0,0,.425)',
     advancedBG: 'rgba(0,0,0,0.1)',
 
     //primary colors
-    primary1: '#BA55D3',
-    primary2: '#9932CC',
-    primary3: '#8B008B',
-    primary4: '#800080',
-    primary5: '#4B0082',
+    primary1: '#f8c070',
+    primary2: '#f7b962',
+    primary3: '#efaf56',
+    primary4: '#eca746',
+    primary5: '#fcd229',
 
     // color text
-    primaryText1: '#DA70D6',
+    primaryText1: '#fff',
 
     // secondary colors
     secondary1: '#2172E5',
@@ -71,15 +70,15 @@ export function colors(): Colors {
     red1: '#FF6871',
     red2: '#F82D3A',
     green1: '#27AE60',
-    yellow1: '#FFE270',
+    yellow1: '#f8c070',
     yellow2: '#F3841E',
 
     //shadow
 
     shadow:
-      'inset -8px -8px 60px -5px rgb(21 20 29 / 60%), inset 4px -4px 3px rgb(102 96 119 / 50%), inset -7px 7px 5px -4px #161222;',
+      'inset -8px -8px 60px -5px rgb(21 20 29 / 60%), inset 4px -4px 3px rgb(102 96 119 / 50%), inset -7px 7px 5px -4px #fff;',
     shadow2:
-      '-6px 6px 12px rgb(11 9 30 / 50%), 5px -5px 12px rgb(79 74 94 / 30%), inset -6px 6px 12px rgb(11 9 30 / 24%), inset -5px -5px 20px rgb(102 96 119 / 20%);',
+      '-6px 6px 12px rgb(11 9 30 / 50%), 5px -5px 12pgx rgb(79 74 94 / 30%), inset -6px 6px 12px rgb(11 9 30 / 24%), inset -5px -5px 20px rgb(102 96 119 / 20%);',
     shadow3:
       'inset -8px -8px 60px -5px rgb(21 20 29 / 60%), inset 4px -4px 3px rgb(102 96 119 / 50%), inset -7px 7px 5px -4px #161222;'
     // dont wanna forget these blue yet

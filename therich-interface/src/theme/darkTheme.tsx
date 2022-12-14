@@ -33,8 +33,8 @@ export function colors(): Colors {
     black,
 
     // text
-    text1: '#FFFFFF',
-    text2: '#d1d1d1',
+    text1: '#eff6ff',
+    text2: '#FEFEFE',
     text3: '#6C7284',
     text4: '#565A69',
     text5: '#2C2F36',
@@ -45,9 +45,7 @@ export function colors(): Colors {
     bg3: '#40444F',
     bg4: '#565A69',
     bg5: '#6C7284',
-    // bgMain: 'linear-gradient(to right top, #1f2232 70%, #cfa731 30%)',
-    // bgMain: 'linear-gradient(to right, #232526, #414345)',
-    bgMain: '#2c2d32',
+    bgMain: '#1b2030',
 
     //specialty colors
     modalBG: 'rgba(0,0,0,.425)',
@@ -66,14 +64,14 @@ export function colors(): Colors {
     // primaryText1: '#6da8ff',
 
     //primary colors
-    primary1: '#BA55D3',
-    primary2: '#9932CC',
-    primary3: '#8B008B',
-    primary4: '#800080',
-    primary5: '#4B0082',
+    primary1: '#f8c070',
+    primary2: '#f7b962',
+    primary3: '#efaf56',
+    primary4: '#eca746',
+    primary5: '#fcd229',
 
     // color text
-    primaryText1: '#DA70D6',
+    primaryText1: '#fff',
 
     // secondary colors
     secondary1: '#2172E5',
@@ -84,7 +82,7 @@ export function colors(): Colors {
     red1: '#FF6871',
     red2: '#F82D3A',
     green1: '#27AE60',
-    yellow1: '#FFE270',
+    yellow1: '#f8c070',
     yellow2: '#F3841E',
 
     //shadow

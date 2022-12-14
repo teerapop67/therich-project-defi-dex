@@ -74,7 +74,7 @@ const HeaderElementWrap = styled.div`
 `};
 `
 
-const Title = styled.a`
+export const Title = styled.a`
   display: flex;
   align-items: center;
   pointer-events: auto;
@@ -105,15 +105,19 @@ const TestnetWrapper = styled.div`
   width: fit-content;
   margin: 0 10px;
   pointer-events: auto;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `
 
 const NetworkCard = styled.div`
   width: fit-content;
   margin-right: 10px;
-  padding: 10px 13px;
+  /* padding: 10px 13px; */
 `
 
-const UniIcon = styled.div`
+export const UniIcon = styled.div`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.text1};
@@ -138,6 +142,21 @@ const BalanceText = styled(Text)`
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     display: none;
   `};
+`
+
+const FaucetButton = styled.a<{ active: boolean }>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: ${({ theme }) => theme.text1};
+  border-radius: 12px;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-right: 30px;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px 25px;
+  border: 1px solid ${({ theme }) => theme.text1};
 `
 
 const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
@@ -173,11 +192,20 @@ const Header: React.FC<PropsHeader> = props => {
         </HeaderElement>
         {location.pathname === '/' ? (
           <Link to="/swap">
-            <Button borderColor="#6c6051">Launch</Button>
+            <Button borderColor="transparent" bg="#fd7687">
+              Launch
+            </Button>
           </Link>
         ) : (
           <HeaderControls>
             <HeaderElement>
+              <FaucetButton
+                active={!!account}
+                href="https://apps.moonbeam.network/moonbase-alpha/faucet/"
+                target="_blank"
+              >
+                Faucet
+              </FaucetButton>
               <TestnetWrapper>
                 {!isMobile && chainId && NETWORK_LABELS[chainId] && (
                   <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>

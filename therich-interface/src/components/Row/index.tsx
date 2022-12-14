@@ -14,10 +14,12 @@ const Row = styled(Box)<{ align?: string; padding?: string; border?: string; bor
 export const RowBetween = styled(Row)`
   justify-content: space-between;
 
-  @media screen and (max-width: 660px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     gap: 30px;
   }
+
+ 
 `
 
 export const RowFlat = styled.div`
@@ -36,7 +38,6 @@ export const AutoRow = styled(Row)<{ gap?: string; justify?: string }>`
 `
 
 export const RowFixed = styled(Row)<{ gap?: string; justify?: string }>`
-  width: fit-content;
   margin: ${({ gap }) => gap && `-${gap}`};
 `
 
